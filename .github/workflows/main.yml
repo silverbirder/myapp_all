@@ -12,5 +12,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           repository: silverbirder/myapp_front
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           event-type: create-pull-request
