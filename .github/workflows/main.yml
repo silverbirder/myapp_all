@@ -1,0 +1,15 @@
+name: publish-and-dispatch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    name: Setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: dispatch update-packages
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          repository: silverbirder/myapp_front
+          event-type: create-pull-request
