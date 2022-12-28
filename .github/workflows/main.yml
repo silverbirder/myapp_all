@@ -16,4 +16,4 @@ jobs:
           repository: silverbirder/myapp_front
           token: ${{ secrets.PAT }}
           event-type: create-pull-request
-          client-payload: '{"github": $(cat i18n/resource.json)}'
+          client-payload: '{"github": ${{ fromJson($(cat i18n/resource.json)) }} }'
