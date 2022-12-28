@@ -13,7 +13,7 @@ jobs:
       - name: set val
         id: resource
         run: |
-          echo $(cat i18n/resource.json) >> $OUTPUT
+          echo $(cat i18n/resource.json) >> $GITHUB_OUTPUT
       - name: dispatch update-packages
         uses: peter-evans/repository-dispatch@v1
         with:
