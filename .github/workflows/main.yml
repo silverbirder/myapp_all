@@ -10,10 +10,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+      - name: set val
+        id: resource
+        run: |
+          echo $(cat i18n/resource.json) >> $OUTPUT
       - name: dispatch update-packages
         uses: peter-evans/repository-dispatch@v1
         with:
           repository: silverbirder/myapp_front
           token: ${{ secrets.PAT }}
           event-type: create-pull-request
-          client-payload: '{"github": ${{ fromJson($(cat i18n/resource.json)) }} }'
+          client-payload: {"github": ${{ toJson(steps.resource.outputs) }}}
