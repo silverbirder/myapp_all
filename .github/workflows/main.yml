@@ -13,11 +13,11 @@ jobs:
       - name: set val
         id: resource
         run: |
-          echo resource=$(cat i18n/resource.json) >> $GITHUB_OUTPUT
+          echo $(cat i18n/resource.json) >> $GITHUB_OUTPUT
       - name: dispatch update-packages
         uses: peter-evans/repository-dispatch@v1
         with:
           repository: silverbirder/myapp_front
           token: ${{ secrets.PAT }}
           event-type: create-pull-request
-          client-payload: '{"github": ${{ fromJson(steps.resource.outputs) }}}'
+          client-payload: '{"github": ${{ fromJSON(steps.resource.outputs) }}}'
