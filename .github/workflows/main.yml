@@ -8,9 +8,12 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: dispatch update-packages
         uses: peter-evans/repository-dispatch@v1
         with:
           repository: silverbirder/myapp_front
           token: ${{ secrets.PAT }}
           event-type: create-pull-request
+          client-payload: '{"github": $(cat i18n/resource.json)}'
