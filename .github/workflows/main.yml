@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'i18n/**'
 jobs:
   release:
     name: Setup
