@@ -16,5 +16,5 @@ not the [Bee Gees song](https://www.youtube.com/watch?v=I_izvAbhExY).
 
 ### Scenario Outline: Say foo
 
-- When the greeter says foo
+- When the greeter says foo foo
 - Then I should have heard "foo"
